@@ -11,6 +11,7 @@ import UIKit
 class XKLAvatarBrowser: UIView {
 
     var oldframe : CGRect!
+    
     func showImage (avatarImageView : UIImageView) {
         let image : UIImage = avatarImageView.image!
         let window : UIWindow = UIApplication.sharedApplication().keyWindow!
@@ -27,21 +28,19 @@ class XKLAvatarBrowser: UIView {
         window.addSubview(backgroundView)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: Selector("hideImage"))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: "hideImage")
         backgroundView.addGestureRecognizer(tap)
         
-        UIView.animateWithDuration(0.3) { () -> Void in
+        UIView.animateWithDuration(0.3, animations: { ()
             imageView.frame = CGRectMake(0, (UIScreen.mainScreen().bounds.size.height - image.size.height * UIScreen.mainScreen().bounds.size.width / image.size.width) / 2, UIScreen.mainScreen().bounds.size.width, image.size.height * UIScreen.mainScreen().bounds.size.width / image.size.width)
             
             backgroundView.alpha = 1
-        }
-        UIView.animateWithDuration(0.3, animations: { () -> Void in
-            imageView.frame = CGRectMake(0, (UIScreen.mainScreen().bounds.size.height - image.size.height * UIScreen.mainScreen().bounds.size.width / image.size.width) / 2, UIScreen.mainScreen().bounds.size.width, image.size.height * UIScreen.mainScreen().bounds.size.width / image.size.width)
             
-            backgroundView.alpha = 1
             }) { (Bool) -> Void in
                 
         }
+        
+        
         
     } 
     
