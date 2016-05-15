@@ -11,7 +11,7 @@ import UIKit
 class XKLAvatarBrowser: UIView {
 
     var oldframe : CGRect!
-    
+    //展现放大效果
     func showImage (avatarImageView : UIImageView) {
         let image : UIImage = avatarImageView.image!
         let window : UIWindow = UIApplication.sharedApplication().keyWindow!
@@ -44,7 +44,7 @@ class XKLAvatarBrowser: UIView {
         
     } 
     
-    
+    //放大效果消失
     func hideImage (tap : UITapGestureRecognizer) {
         let backgroundView : UIView = tap.view!
         let imageView : UIImageView = tap.view?.viewWithTag(1) as! UIImageView
